@@ -1,4 +1,4 @@
 @merge libraries{
-    checkout
+    git
     sonarqube
 }
