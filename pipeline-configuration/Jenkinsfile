@@ -1,5 +1,7 @@
-deleteDir()
-checkout(scm)
+node {
+    deleteDir()
+    checkout(scm)
+}
 template {
     build()
     static_code_analysis()
