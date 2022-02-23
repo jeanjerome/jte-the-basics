@@ -2,19 +2,18 @@ void call(){
 
   podTemplate(containers: [
       containerTemplate(
-          name: 'alpine-git', 
-          image: 'alpine/git:latest', 
+          name: 'jenkins', 
+          image: 'jenkins/inbound-agent:latest', 
           command: 'sleep', 
           args: '30d'
           )
     ]) {
 
       node(POD_LABEL) {
-        container('alpine-git') {
+        container('jenkins') {
           stage('checkout') {
-            sh '''
-            git checkout ${branch}
-            '''
+            deleteDir()
+            def checkout = checkout(scm)
           }
         }
       }

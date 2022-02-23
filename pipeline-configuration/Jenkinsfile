@@ -1,3 +1,3 @@
-checkout()
+scm_checkout()
 build()
 static_code_analysis()
