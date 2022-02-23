@@ -14,7 +14,6 @@ void call(){
           stage('checkout') {
             deleteDir()
             def checkout = checkout(scm)
-            unstash includes: '*', name: 'checkout'
           }
         }
       }

@@ -1,3 +1,6 @@
-scm_checkout()
-build()
-static_code_analysis()
+deleteDir()
+checkout(scm)
+template {
+    build()
+    static_code_analysis()
+}
