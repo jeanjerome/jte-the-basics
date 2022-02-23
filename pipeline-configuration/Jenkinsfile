@@ -1,3 +1,3 @@
-git('checkout')
+checkout()
 build()
 static_code_analysis()
