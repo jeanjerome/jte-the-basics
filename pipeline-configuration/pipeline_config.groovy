@@ -1,5 +1,5 @@
 @merge libraries{
-    git
+    git("checkout")
     sonarqube
 }
 
