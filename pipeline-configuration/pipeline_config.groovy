@@ -2,4 +2,3 @@
     git
     sonarqube
 }
-
