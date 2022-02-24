@@ -1,33 +1,20 @@
 void call(){
 
-  podTemplate(
-    containers: [
-      containerTemplate(
-        name: 'alpine', 
-        image: 'alpine:latest', 
-        command: 'sleep', 
-        args: '30d'
-      )
-    ],
-    volumes: [
-      dynamicPVC(
-        accessModes: 'ReadWriteOnce', 
-        mountPath: '/home/jenkins/agent', 
-        requestsSize: '10Gi', 
-        storageClassName: 'hostpath'
-      )
-    ]
-  ) 
-  
-  {
+  podTemplate(containers: [
+    containerTemplate(
+        name: 'jnlp', 
+        image: 'jenkins/inbound-agent:latest'
+        )
+  ]) {
+
     node(POD_LABEL) {
-      container('alpine') {
+      container('jnlp') {
         stage('checkout') {
           deleteDir()
           def checkout = checkout(scm)
         }
       }
-    }  
+    }
+    
   }
-  
 }
