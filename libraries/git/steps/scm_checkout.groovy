@@ -2,15 +2,15 @@ void call(){
 
   podTemplate(containers: [
       containerTemplate(
-          name: 'jenkins', 
-          image: 'jenkins/inbound-agent:latest', 
+          name: 'alpine', 
+          image: 'alpine:latest', 
           command: 'sleep', 
           args: '30d'
           )
     ]) {
 
       node(POD_LABEL) {
-        container('jenkins') {
+        container('alpine') {
           stage('checkout') {
             deleteDir()
             def checkout = checkout(scm)
