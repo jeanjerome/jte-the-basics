@@ -3,9 +3,7 @@ void call(){
     podTemplate(containers: [
         containerTemplate(
             name: 'maven', 
-            image: 'maven:latest', 
-            command: 'sleep', 
-            args: '30d'
+            image: 'maven:latest'
             )
       ]) {
 
