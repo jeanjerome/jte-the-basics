@@ -1,7 +1,7 @@
 void call(){
 
   podTemplate {
-    node(POD_LABEL) {
+    node('kube-agent') {
       stage('checkout') {
         deleteDir()
         def checkout = checkout(scm)
