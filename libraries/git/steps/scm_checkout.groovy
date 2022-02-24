@@ -21,16 +21,16 @@ void call(){
             claimName: "jenkins-slave-pvc"
             readOnly: false
   """
-
-  agent {
-    kubernetes {
-      yaml podTemplate
-      workspaceVolume dynamicPVC(accessModes: 'ReadWriteOnce', requestsSize: "10Gi")
+  pipeline {
+    agent {
+      kubernetes {
+        yaml podTemplate
+        workspaceVolume dynamicPVC(accessModes: 'ReadWriteOnce', requestsSize: "10Gi")
+      }
+    }
+    stage('checkout') {
+      deleteDir()
+      def checkout = checkout(scm)
     }
   }
-  stage('checkout') {
-    deleteDir()
-    def checkout = checkout(scm)
-  }
-
 }
