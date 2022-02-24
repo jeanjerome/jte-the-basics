@@ -1,7 +1,10 @@
 void call(){
 
-  kubernetes.pod('buildpod').withImage('maven').inside {
-    deleteDir()
-    def checkout = checkout(scm)
+  node(POD_LABEL) {
+    stage('checkout') {
+      deleteDir()
+      def checkout = checkout(scm)
+    }
   }
+  
 }
