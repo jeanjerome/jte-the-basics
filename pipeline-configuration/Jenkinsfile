@@ -1,8 +1,3 @@
-node {
-    deleteDir()
-    checkout(scm)
-}
-template {
-    build()
-    static_code_analysis()
-}
+scm_checkout()
+build()
+static_code_analysis()
