@@ -10,7 +10,7 @@ void call(){
       containers: [
         containerTemplate(
           args: '', 
-          command: '',
+          command: 'clean install',
           image: 'maven:openjdk', 
           name: 'maven'
         )
