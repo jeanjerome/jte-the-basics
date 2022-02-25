@@ -1,17 +1,16 @@
 void call(){
 
   podTemplate(
-    containers: [
-      containerTemplate(
-        name: 'jnlp', 
-        image: 'jenkins/inbound-agent:latest'
-      )
-    ]
-  ) 
-  
-  {
+      cloud: 'kubernetes-cloud', 
+      inheritFrom: 'default-agent',
+      label: 'basic-agent', 
+      name: 'basic-agent', 
+      namespace: 'jenkins', 
+      serviceAccount: 'jenkins-admin'
+    ) {
+
     node(POD_LABEL) {
-      container('jnlp') {
+      container('basic-agent') {
         stage('checkout') {
           deleteDir()
           def checkout = checkout(scm)
