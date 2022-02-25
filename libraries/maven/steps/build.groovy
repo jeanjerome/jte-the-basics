@@ -17,7 +17,7 @@ void call(){
         ),
         containerTemplate(
           args: '', 
-          command: '', 
+          command: 'mvn clean install', 
           image: 'maven:openjdk', 
           name: 'maven', 
           workingDir: '/home/jenkins/agent'
@@ -30,7 +30,7 @@ void call(){
         container('maven-agent') {
           stage('maven build') {
             sh '''
-            mvn clean install
+            mvn -v
             '''
           }
         }
