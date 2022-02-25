@@ -11,7 +11,7 @@ void call(){
         containerTemplate(
           args: '', 
           command: '', 
-          image: 'maven:latest', 
+          image: 'jenkins/jnlp-agent-maven', 
           name: 'jnlp', 
           workingDir: '/home/jenkins/agent'
         )
