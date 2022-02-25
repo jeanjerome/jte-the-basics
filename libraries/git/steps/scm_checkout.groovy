@@ -10,7 +10,7 @@ void call(){
       serviceAccount: 'jenkins-admin'
     ) {
 
-    node {
+    node(POD_LABEL) {
       container('basic-agent') {
         stage('checkout') {
           deleteDir()
