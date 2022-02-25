@@ -1,5 +1,6 @@
 void call(){
 
+  def label = "${UUID.randomUUID().toString()}-agent"
   podTemplate(
       cloud: 'kubernetes-cloud', 
       inheritFrom: 'default-agent',
@@ -9,7 +10,7 @@ void call(){
       serviceAccount: 'jenkins-admin'
     ) {
 
-    node(POD_LABEL) {
+    node(label) {
       container('basic-agent') {
         stage('checkout') {
           deleteDir()
