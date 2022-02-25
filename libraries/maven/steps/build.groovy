@@ -2,31 +2,30 @@ void call(){
 
     podTemplate(
       cloud: 'kubernetes-cloud', 
+      inheritFrom: 'default-agent', 
+      name: 'maven-agent', 
+      namespace: 'jenkins', 
+      serviceAccount: 'jenkins-admin',
       containers: [
         containerTemplate(
           args: '', 
           command: '', 
           image: 'maven:latest', 
-          name: 'maven-agent', 
+          name: 'jnlp', 
           workingDir: '/home/jenkins/agent'
         )
       ], 
-      inheritFrom: 'default-agent', 
-      label: 'maven-agent', 
-      name: 'maven-agent', 
-      namespace: 'jenkins', 
-      serviceAccount: 'jenkins-admin'
-    ) {
-
+    )
+    
+    {
       node(POD_LABEL) {
-          container('maven-agent') {
-            stage('maven build') {
-              sh '''
-              mvn clean install
-              '''
-            }
+        container('maven-agent') {
+          stage('maven build') {
+            sh '''
+            mvn clean install
+            '''
           }
-
+        }
       }
     }
     

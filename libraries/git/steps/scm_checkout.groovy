@@ -1,6 +1,6 @@
 void call(){
 
-  podTemplate(
+    podTemplate(
       cloud: 'kubernetes-cloud', 
       inheritFrom: 'default-agent',
       name: 'basic-agent', 
@@ -15,16 +15,17 @@ void call(){
           workingDir: '/home/jenkins/agent'
         )
       ], 
-    ) {
-
-    node(POD_LABEL) {
-      container('basic-agent') {
-        stage('checkout') {
-          deleteDir()
-          def checkout = checkout(scm)
+    ) 
+    
+    {
+      node(POD_LABEL) {
+        container('basic-agent') {
+          stage('checkout') {
+            deleteDir()
+            def checkout = checkout(scm)
+          }
         }
       }
     }
-  }
   
 }
