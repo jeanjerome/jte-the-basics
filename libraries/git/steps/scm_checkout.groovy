@@ -1,10 +1,8 @@
 void call(){
 
-  def label = "${UUID.randomUUID().toString()}-agent"
   podTemplate(
       cloud: 'kubernetes-cloud', 
       inheritFrom: 'default-agent',
-      label: 'basic-agent', 
       name: 'basic-agent', 
       namespace: 'jenkins', 
       serviceAccount: 'jenkins-admin',
@@ -13,7 +11,7 @@ void call(){
           args: '', 
           command: '', 
           image: 'jenkins/inbound-agent:latest', 
-          name: 'jnlp-agent', 
+          name: 'jnlp', 
           workingDir: '/home/jenkins/agent'
         )
       ], 
