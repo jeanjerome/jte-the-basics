@@ -10,7 +10,7 @@ void call(){
       containers: [
         containerTemplate(
           args: '', 
-          command: ' ',
+          command: 'mvn -v',
           image: 'maven:openjdk', 
           name: 'maven'
         )
