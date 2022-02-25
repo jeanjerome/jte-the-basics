@@ -19,8 +19,7 @@ void call(){
           args: '', 
           command: 'mvn clean install', 
           image: 'maven:openjdk', 
-          name: 'maven', 
-          workingDir: '/home/jenkins/agent'
+          name: 'maven'
         )
       ], 
     )
