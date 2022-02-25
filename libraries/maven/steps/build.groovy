@@ -10,13 +10,6 @@ void call(){
       containers: [
         containerTemplate(
           args: '', 
-          command: '', 
-          image: 'jenkins/inbound-agent:latest', 
-          name: 'jnlp', 
-          workingDir: '/home/jenkins/agent'
-        ),
-        containerTemplate(
-          args: '', 
           command: 'mvn clean install', 
           image: 'maven:openjdk', 
           name: 'maven'
