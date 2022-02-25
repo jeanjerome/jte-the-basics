@@ -7,7 +7,16 @@ void call(){
       label: 'basic-agent', 
       name: 'basic-agent', 
       namespace: 'jenkins', 
-      serviceAccount: 'jenkins-admin'
+      serviceAccount: 'jenkins-admin',
+      containers: [
+        containerTemplate(
+          args: '', 
+          command: '', 
+          image: 'jenkins/inbound-agent:latest', 
+          name: 'jnlp-agent', 
+          workingDir: '/home/jenkins/agent'
+        )
+      ], 
     ) {
 
     node(POD_LABEL) {
