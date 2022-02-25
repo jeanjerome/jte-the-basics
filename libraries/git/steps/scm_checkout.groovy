@@ -6,6 +6,7 @@ void call(){
       name: 'basic-agent', 
       namespace: 'jenkins', 
       serviceAccount: 'jenkins-admin',
+      volumes: [hostPathVolume(hostPath: '/Users/jeanjerome/PROJETS/jenkins-template-engine/jenkins-workspaces', mountPath: '/home/jenkins/agent')],
       containers: [
         containerTemplate(
           args: '', 
